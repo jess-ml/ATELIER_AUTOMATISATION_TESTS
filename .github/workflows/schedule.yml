@@ -1,0 +1,14 @@
+name: Planification quotidienne des tests
+
+on:
+  schedule:
+    # Exécution tous les jours à 12h00 UTC
+    - cron: '0 12 * * *'
+  workflow_dispatch: # Permet de le lancer manuellement si besoin
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Déclencher le run sur PythonAnywhere
+        run: curl -s https://jess12.pythonanywhere.com/run
